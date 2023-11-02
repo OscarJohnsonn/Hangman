@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hangman - You Lost</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gabarito">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+            font-size: 1.3rem;
+            text-align: center;
+            font-family: Gabarito;
+            transition: 1s;
+        }
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+        .container {
+            text-align: center;
+        }
+        input {
+            width: 10%;
+            padding: 10px;
+            border: 3px solid rgb(0, 0, 0);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        #submit img {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+</head>
+<body>
+    <h1>You lost. The word was:</h1>
+    <p id="word"></p>
+<br><br><br><br>
+    <a href="index.html">
+        <button>Play Again</button>
+     </a>
+    <script>
+        // Extract the word parameter from the URL
+        var params = new URLSearchParams(window.location.search);
+        var word = params.get("word");
+        if (word) {
+            document.getElementById("word").textContent = word;
+        }
+    </script>
+</body>
+</html>
