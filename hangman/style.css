@@ -1,0 +1,39 @@
+body {
+    font-size: 1.3rem;
+    text-align: center;
+    font-family: Gabarito;
+    animation: fadeIn;
+    animation-duration: 1s;
+    transition: 0.1s;
+}
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.container {
+    text-align: center;
+}
+input {
+    width: 10%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+#submit img {
+    vertical-align: middle;
+}
+#counter{
+    top: 0;
+    left: 0;
+    text-align: none;
+}
+#output {
+    letter-spacing: 10px; /* Adjust the spacing as needed */
+}
