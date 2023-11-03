@@ -37,3 +37,6 @@ input:focus {
 #output {
     letter-spacing: 10px; /* Adjust the spacing as needed */
 }
+h1{
+    cursor: pointer;
+}
