@@ -5,11 +5,18 @@ body {
     animation: fadeIn;
     animation-duration: 1s;
     transition: 0.1s;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none;
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
 }
 button {
     border: none;
     background: none;
     cursor: pointer;
+    opacity: 0;
 }
 .container {
     text-align: center;
@@ -39,4 +46,30 @@ input:focus {
 }
 h1{
     cursor: pointer;
+}
+#mode{
+    width: 10%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
+
+
+}
+#mode:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+#man{
+    position: absolute;
+    left: 300px;
+    top: 200px;
+    transition: 20s;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+#guessed{
+
 }
