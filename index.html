@@ -13,19 +13,18 @@
     
     <h1 onclick="generate()"  >Hangman</h1>
     <h1 id="counter">Errors: 0/10</h1><br><br>
-    <h2 id="output"></h2><br>
+    <h2 id="output"></h2>
+    <h2 id="guessed"></h2><br>
     <div class="container">
-        <input type="text" id="input" maxlength="1">
-        <button onclick="trychar()" id="submit"><img src="right-chevron.png" alt="submit" width="50px"></button>
+        <input type="text" id="input" maxlength="1" minlength="1">
     </div>
-    <h2 id="guessed"></h2>
-    <img src="images/0.webp" alt="man" id="man" width="80px">
+    <button onclick="trychar()" id="submit"><img src="right-chevron.png" alt="submit" width="60px"></button>
+    <img src="images/0.webp" alt="man" id="man" width="300px">
     <div>
-        <label for="mode">Select mode:</label>
         <select id="mode" onchange="changeMode()">
-            <option value="hard">expert</option>
-            <option value="common">Intermediate</option>
             <option value="easy">Beginner</option>
+            <option value="common">Intermediate</option>
+            <option value="hard">expert</option>
             
         </select>
     </div>
@@ -39,7 +38,7 @@
                 document.getElementById("submit").click();
             }
         });
-        var mode = "common";
+        var mode = "easy";
 
         common_nouns = [
             "time", "person", "year", "way", "day", "man", "government", "company", "part", "case",
@@ -131,32 +130,32 @@
                 alert("Please guess a different letter, you have already guessed that one.");
             }else{
                 guessed.push(input);
-            }
-
-
-            document.getElementById("input").value = "";
-            if (input == currentWord) {
-                alert("YOU WIN!!!");
-                window.location.href = "win.html?word=" + currentWord + "&errors=" + errors;
-            } else if (currentWord.includes(input)) {
-                for (let i = 0; i < currentWord.length; i++) {
-                    if (currentWord[i] === input) {
-                        displayedWord = displayedWord.substring(0, i) + input + displayedWord.substring(i + 1);
+                document.getElementById("input").value = "";
+                if (input == currentWord) {
+                    window.location.href = "win.html?word=" + currentWord + "&errors=" + errors;
+                } else if (currentWord.includes(input)) {
+                    for (let i = 0; i < currentWord.length; i++) {
+                        if (currentWord[i] === input) {
+                            displayedWord = displayedWord.substring(0, i) + input + displayedWord.substring(i + 1);
+                        }
+                    }
+                    if (displayedWord == currentWord) {
+                        alert("YOU WIN!!!");
+                        window.location.href = "win.html?word=" + currentWord + "&errors=" + errors;
+                    }
+                    document.getElementById("output").textContent = displayedWord;
+                } else {
+                    errors = errors + 1;
+                    document.getElementById("man").src = "images/" + errors + ".webp"; 
+                    document.getElementById("counter").textContent = "Errors: " + errors + "/10";
+                    if (errors === 10) {
+                        window.location.href = "fail.html?word=" + currentWord;
                     }
                 }
-                if (displayedWord == currentWord) {
-                    alert("YOU WIN!!!");
-                    window.location.href = "win.html?word=" + currentWord + "&errors=" + errors;
-                }
-                document.getElementById("output").textContent = displayedWord;
-            } else {
-                errors = errors + 1;
-                document.getElementById("man").src = "images/" + errors + ".webp"; 
-                document.getElementById("counter").textContent = "Errors: " + errors + "/10";
-                if (errors === 10) {
-                    window.location.href = "fail.html?word=" + currentWord;
-                }
             }
+
+
+
     }
     </script>
 </body>
